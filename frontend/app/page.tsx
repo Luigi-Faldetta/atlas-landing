@@ -106,10 +106,10 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Modern Real Estate Investment</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Start owning real estate — without breaking the bank</h3>
                   </div>
                   <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                    Atlas is a <span className="font-semibold text-blue-600 dark:text-blue-400">new way to invest in real estate</span> — smarter, more flexible, and actually built for how people want to invest today.
+                  Atlas makes it possible to invest in properties starting small, <span className="font-semibold text-blue-600 dark:text-blue-400"> while keeping full control over what you own.</span>
                   </p>
                   <div className="flex space-x-2 mb-6">
                     <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">Smarter</span>
@@ -123,20 +123,21 @@ export default function Home() {
                   <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
                     <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4">For Everyone, Not Just the Elite</h4>
                     <p className="text-slate-600 dark:text-slate-400 mb-6">
-                      We give you access to real estate opportunities that were once reserved for the <span className="line-through italic text-slate-400 dark:text-slate-500">wealthy or institutional players</span> — and we do it in a way that's:
+                      Buying real estate used to mean saving for years or getting a mortgage. Atlas changes that.
+                      We split real properties into digital shares so that you can own a piece, earn rental income, and track your growth.
                     </p>
                     <ul className="space-y-3">
                       <li className="flex items-center text-slate-600 dark:text-slate-400">
                         <span className="w-6 h-6 mr-2 rounded-full bg-blue-500 flex items-center justify-center text-white">✓</span>
-                        <span>Fast</span>
+                        <span>Discover properties</span>
                       </li>
                       <li className="flex items-center text-slate-600 dark:text-slate-400">
                         <span className="w-6 h-6 mr-2 rounded-full bg-blue-500 flex items-center justify-center text-white">✓</span>
-                        <span>Transparent</span>
+                        <span>Choose your stake</span>
                       </li>
                       <li className="flex items-center text-slate-600 dark:text-slate-400">
                         <span className="w-6 h-6 mr-2 rounded-full bg-blue-500 flex items-center justify-center text-white">✓</span>
-                        <span>Low-cost</span>
+                        <span>Earn and track</span>
                       </li>
                     </ul>
                   </div>

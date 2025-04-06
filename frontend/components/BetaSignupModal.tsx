@@ -39,7 +39,7 @@ export function BetaSignupModal({ trigger }: BetaSignupModalProps) {
           onClick={handleButtonClick}
           className="relative px-8 py-6 text-lg bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-xl shadow-lg transform transition duration-300 group-hover:scale-105 group-hover:shadow-xl w-full"
         >
-          Sign up for the Beta
+          Join the early access list
         </Button>
       )}
       <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden border-0 shadow-2xl">
