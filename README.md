@@ -1,3 +1,16 @@
+# Atlas Landing Page
+
+This is a simplified version of Project Atlas containing only the landing page functionality. User authentication has been removed, and the following routes have been disabled:
+- `/login` - No authentication required
+- `/properties` - Disabled
+- `/analytics` - Disabled
+- `/wallet` - Disabled
+- `/tools` - Disabled
+
+## Overview
+
+Project Atlas is a real estate investment platform showcase landing page. This version has been streamlined to focus solely on the landing page experience, removing authentication and other functionality.
+
 # Project Atlas
 
 Project Atlas is a fractional real estate investment platform that leverages blockchain technology and AI to democratize property investment. This MVP demonstrates the core functionality of the platform, allowing users to browse properties, make investments, and track their portfolio performance.

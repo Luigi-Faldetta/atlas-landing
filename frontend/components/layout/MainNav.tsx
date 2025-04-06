@@ -21,26 +21,6 @@ const navItems = [
     name: "Home",
     href: "/",
     icon: Home
-  },
-  {
-    name: "Properties",
-    href: "/properties",
-    icon: Building2
-  },
-  {
-    name: "Analytics",
-    href: "/analytics",
-    icon: BarChart3
-  },
-  {
-    name: "Wallet",
-    href: "/wallet",
-    icon: Wallet
-  },
-  {
-    name: "Tools",
-    href: "/tools",
-    icon: Calculator
   }
 ];
 
@@ -201,20 +181,6 @@ export function MainNav() {
                 );
               })}
             </nav>
-            
-            <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
-              <Link 
-                href="/profile"
-                className="flex items-center rounded-lg py-3 px-4 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <div className="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 mr-3"></div>
-                <div>
-                  <p className="font-medium">John Doe</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-500">View profile</p>
-                </div>
-              </Link>
-            </div>
           </div>
         </div>
       )}
