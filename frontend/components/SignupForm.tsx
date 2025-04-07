@@ -22,7 +22,16 @@ export function SignupForm() {
     priorExperience: '',
     painPoints: '',
     wishlist: '',
-    phone: ''
+    phone: '',
+    interests: {
+      owningRealEstate: false,
+      monthlyIncome: false,
+      diversifyingPortfolio: false,
+      simplerWay: false,
+      sellingExiting: false,
+      other: false
+    },
+    otherInterestText: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -46,6 +55,17 @@ export function SignupForm() {
     }
   }
 
+  // Handler for interest checkboxes
+  const handleInterestChange = (interest: string, checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      interests: {
+        ...prev.interests,
+        [interest]: checked
+      }
+    }));
+  }
+
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
@@ -55,6 +75,20 @@ export function SignupForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setErrorMessage('');
+
+    // Convert interests object to comma-separated string
+    const selectedInterests = Object.entries(formData.interests)
+      .filter(([_, isSelected]) => isSelected)
+      .map(([interest, _]) => {
+        // Format the interest key to be more readable
+        if (interest === 'otherInterest') return `Other: ${formData.otherInterestText}`;
+        
+        // Convert camelCase to readable text
+        return interest
+          .replace(/([A-Z])/g, ' $1')
+          .replace(/^./, (str) => str.toUpperCase());
+      })
+      .join(', ');
 
     // Prepare data for Sheety API
     // Note: column names in sheet must match these property names (case-sensitive)
@@ -69,7 +103,17 @@ export function SignupForm() {
         investmentamount: formData.investmentAmount || '', // Try lowercase for compound names
         priorexperience: formData.priorExperience || '', // Try lowercase for compound names
         painpoints: formData.painPoints || '', // Try lowercase for compound names
-        wishlist: formData.wishlist || ''
+        wishlist: formData.wishlist || '',
+        // Add the interests as a comma-separated string
+        interests: selectedInterests
+        
+        // Alternative approach: send individual interest fields if using separate columns
+        // owningrealestate: formData.interests.owningRealEstate,
+        // monthlyincome: formData.interests.monthlyIncome,
+        // diversifyingportfolio: formData.interests.diversifyingPortfolio,
+        // simplerway: formData.interests.simplerWay,
+        // sellingexiting: formData.interests.sellingExiting,
+        // otherinterest: formData.interests.other ? formData.otherInterestText : '',
       }
     };
     
@@ -110,7 +154,16 @@ export function SignupForm() {
         investmentAmount: '',
         priorExperience: '',
         painPoints: '',
-        wishlist: ''
+        wishlist: '',
+        interests: {
+          owningRealEstate: false,
+          monthlyIncome: false,
+          diversifyingPortfolio: false,
+          simplerWay: false,
+          sellingExiting: false,
+          other: false
+        },
+        otherInterestText: ''
       });
 
     } catch (error) {
@@ -300,6 +353,110 @@ export function SignupForm() {
               placeholder="e.g., transparency, easy returns, lower barriers..."
               className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
             />
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-blue-600/50 to-transparent my-6 rounded-full"></div>
+
+      <section className="space-y-4">
+        <div className="flex items-center gap-2 mb-1">
+          <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold">4</div>
+          <h2 className="text-xl font-bold text-amber-400">What interests you most about Atlas?</h2>
+        </div>
+        
+        <div className="space-y-2">
+          <p className="text-sm font-medium text-white mb-2">
+            You can select multiple options.
+          </p>
+          
+          <div className="space-y-3">
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="owningRealEstate"
+                checked={formData.interests.owningRealEstate}
+                onCheckedChange={(checked) => handleInterestChange('owningRealEstate', checked as boolean)}
+                className="bg-white border-blue-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500 h-5 w-5"
+              />
+              <Label htmlFor="owningRealEstate" className="text-white">
+                Owning real estate without buying an entire property
+              </Label>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="monthlyIncome"
+                checked={formData.interests.monthlyIncome}
+                onCheckedChange={(checked) => handleInterestChange('monthlyIncome', checked as boolean)}
+                className="bg-white border-blue-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500 h-5 w-5"
+              />
+              <Label htmlFor="monthlyIncome" className="text-white">
+                Monthly income through rental shares
+              </Label>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="diversifyingPortfolio"
+                checked={formData.interests.diversifyingPortfolio}
+                onCheckedChange={(checked) => handleInterestChange('diversifyingPortfolio', checked as boolean)}
+                className="bg-white border-blue-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500 h-5 w-5"
+              />
+              <Label htmlFor="diversifyingPortfolio" className="text-white">
+                Diversifying my portfolio
+              </Label>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="simplerWay"
+                checked={formData.interests.simplerWay}
+                onCheckedChange={(checked) => handleInterestChange('simplerWay', checked as boolean)}
+                className="bg-white border-blue-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500 h-5 w-5"
+              />
+              <Label htmlFor="simplerWay" className="text-white">
+                Simpler, smarter way to invest in real estate
+              </Label>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="sellingExiting"
+                checked={formData.interests.sellingExiting}
+                onCheckedChange={(checked) => handleInterestChange('sellingExiting', checked as boolean)}
+                className="bg-white border-blue-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500 h-5 w-5"
+              />
+              <Label htmlFor="sellingExiting" className="text-white">
+                Selling and exiting on my own terms
+              </Label>
+            </div>
+            
+            <div className="flex items-start space-x-2">
+              <Checkbox 
+                id="otherInterest"
+                checked={formData.interests.other}
+                onCheckedChange={(checked) => handleInterestChange('other', checked as boolean)}
+                className="bg-white border-blue-400 data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500 h-5 w-5 mt-1"
+              />
+              <div className="space-y-1 flex-1">
+                <Label htmlFor="otherInterest" className="text-white">
+                  Other
+                </Label>
+                {formData.interests.other && (
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                    <Input
+                      id="otherInterestText"
+                      name="otherInterestText"
+                      value={formData.otherInterestText}
+                      onChange={handleChange}
+                      placeholder="Please specify..."
+                      className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
