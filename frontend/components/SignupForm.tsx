@@ -76,20 +76,6 @@ export function SignupForm() {
     setSubmitStatus('idle');
     setErrorMessage('');
 
-    // Convert interests object to comma-separated string
-    const selectedInterests = Object.entries(formData.interests)
-      .filter(([_, isSelected]) => isSelected)
-      .map(([interest, _]) => {
-        // Format the interest key to be more readable
-        if (interest === 'otherInterest') return `Other: ${formData.otherInterestText}`;
-        
-        // Convert camelCase to readable text
-        return interest
-          .replace(/([A-Z])/g, ' $1')
-          .replace(/^./, (str) => str.toUpperCase());
-      })
-      .join(', ');
-
     // Prepare data for Sheety API
     // Note: column names in sheet must match these property names (case-sensitive)
     const sheetyData = {
@@ -104,16 +90,13 @@ export function SignupForm() {
         priorexperience: formData.priorExperience || '', // Try lowercase for compound names
         painpoints: formData.painPoints || '', // Try lowercase for compound names
         wishlist: formData.wishlist || '',
-        // Add the interests as a comma-separated string
-        interests: selectedInterests
-        
-        // Alternative approach: send individual interest fields if using separate columns
-        // owningrealestate: formData.interests.owningRealEstate,
-        // monthlyincome: formData.interests.monthlyIncome,
-        // diversifyingportfolio: formData.interests.diversifyingPortfolio,
-        // simplerway: formData.interests.simplerWay,
-        // sellingexiting: formData.interests.sellingExiting,
-        // otherinterest: formData.interests.other ? formData.otherInterestText : '',
+        // Send each checkbox value as "Yes"/"No" strings
+        "owning real estate without buying an entire property": formData.interests.owningRealEstate ? "Yes" : "No",
+        "monthly income through rental shares": formData.interests.monthlyIncome ? "Yes" : "No",
+        "diversifying my portfolio": formData.interests.diversifyingPortfolio ? "Yes" : "No",
+        "simpler, smarter way to invest in real estate": formData.interests.simplerWay ? "Yes" : "No",
+        "selling and exiting on my own terms": formData.interests.sellingExiting ? "Yes" : "No",
+        "other": formData.interests.other ? formData.otherInterestText : "No"
       }
     };
     
