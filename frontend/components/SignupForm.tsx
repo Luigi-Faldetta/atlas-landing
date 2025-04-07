@@ -126,6 +126,26 @@ export function SignupForm() {
       const responseData = await response.json();
       console.log("Response data:", responseData);
       
+      // Send confirmation email
+      try {
+        const emailResponse = await fetch('/api/email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+          }),
+        });
+
+        if (!emailResponse.ok) {
+          console.error('Failed to send confirmation email');
+        }
+      } catch (error) {
+        console.error('Error sending confirmation email:', error);
+      }
+      
       setSubmitStatus('success');
       
       // Reset form data
