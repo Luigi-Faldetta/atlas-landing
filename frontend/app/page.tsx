@@ -30,17 +30,13 @@ export default function Home() {
           </div>
           
           {/* Main heading with animated gradient */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent">
-              Invest in tokenized real estate
-            </span> 
-            <br className="hidden md:block" />
-            <span className="text-white">with the trust of traditional wealth.</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-6">
+            Start owning real estate — <span className="text-amber-400">without breaking the bank</span>
           </h1>
           
           {/* Subheading with enhanced styling */}
           <p className="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto">
-            Fractionalized property investment, the <span className="font-semibold text-white">smarter way</span> to invest in property with lower barriers and higher flexibility.
+            Atlas makes it possible to invest in properties starting small, <span className="font-semibold text-white">while keeping full control over what you own</span>.
           </p>
           
           {/* CTA section with dual buttons */}
@@ -69,28 +65,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-          
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-6 text-blue-200/70">
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              <span>Bank-level security</span>
-            </div>
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-              </svg>
-              <span>Regulated investment</span>
-            </div>
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-              <span>5,000+ investors</span>
-            </div>
-          </div>
         </div>
         
         {/* Scroll indicator */}
@@ -111,56 +85,43 @@ export default function Home() {
             <div className="w-24 h-1 bg-amber-500 mx-auto mt-6 mb-8 rounded-full"></div>
           </div>
 
-          <div className="relative">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-amber-500/20 rounded-3xl blur-lg opacity-70"></div>
-            <div className="relative bg-white dark:bg-slate-800 rounded-2xl p-10 shadow-xl border border-slate-200/60 dark:border-slate-700/60 overflow-hidden">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-amber-500/10 dark:bg-amber-500/20 rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl"></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/10 dark:bg-blue-500/20 rounded-full translate-x-1/2 translate-y-1/2 blur-2xl"></div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-                <div>
-                  <div className="flex items-center mb-6">
-                    <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-3 rounded-xl shadow-lg text-white mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Start owning real estate — without breaking the bank</h3>
-                  </div>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                  Atlas makes it possible to invest in properties starting small, <span className="font-semibold text-blue-600 dark:text-blue-400"> while keeping full control over what you own.</span>
-                  </p>
-                  <div className="flex space-x-2 mb-6">
-                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">Smarter</span>
-                    <span className="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-sm font-medium">Flexible</span>
-                    <span className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-300 rounded-full text-sm font-medium">Modern</span>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-blue-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+              <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 h-full">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">1</span>
+                  <h5 className="font-semibold text-slate-900 dark:text-white">Discover properties</h5>
                 </div>
-                
-                <div className="relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-blue-500 rounded-xl blur opacity-30"></div>
-                  <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700">
-                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4">For Everyone, Not Just the Elite</h4>
-                    <p className="text-slate-600 dark:text-slate-400 mb-6">
-                      Buying real estate used to mean saving for years or getting a mortgage. Atlas changes that.
-                      We split real properties into digital shares so that you can own a piece, earn rental income, and track your growth.
-                    </p>
-                    <ul className="space-y-3">
-                      <li className="flex items-center text-slate-600 dark:text-slate-400">
-                        <span className="w-6 h-6 mr-2 rounded-full bg-blue-500 flex items-center justify-center text-white">✓</span>
-                        <span>Discover properties</span>
-                      </li>
-                      <li className="flex items-center text-slate-600 dark:text-slate-400">
-                        <span className="w-6 h-6 mr-2 rounded-full bg-blue-500 flex items-center justify-center text-white">✓</span>
-                        <span>Choose your stake</span>
-                      </li>
-                      <li className="flex items-center text-slate-600 dark:text-slate-400">
-                        <span className="w-6 h-6 mr-2 rounded-full bg-blue-500 flex items-center justify-center text-white">✓</span>
-                        <span>Earn and track</span>
-                      </li>
-                    </ul>
-                  </div>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Browse real homes with full details and data. Find the perfect property that matches your investment goals.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-blue-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+              <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 h-full">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">2</span>
+                  <h5 className="font-semibold text-slate-900 dark:text-white">Choose your stake</h5>
                 </div>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Start with what fits your budget. Select your preferred investment amount and ownership percentage.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-blue-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+              <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 h-full">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">3</span>
+                  <h5 className="font-semibold text-slate-900 dark:text-white">Earn and track</h5>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Get a share of the rent and follow your portfolio as properties grow in value over time.
+                </p>
               </div>
             </div>
           </div>
