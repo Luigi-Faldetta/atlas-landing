@@ -123,166 +123,208 @@ export function SignupForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 overflow-y-auto max-h-[60vh] scrollbar-hide">
+    <form onSubmit={handleSubmit} className="space-y-6 overflow-y-auto max-h-[60vh] scrollbar-hide px-1 mt-6">
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-amber-400">Step 1: Your Info</h2>
+        <div className="flex items-center gap-2 mb-1">
+          <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold">1</div>
+          <h2 className="text-xl font-bold text-amber-400">Your Info</h2>
+        </div>
         
         <div className="space-y-2">
           <label htmlFor="name" className="block text-sm font-medium text-white">
             Full name
           </label>
-          <Input
-            id="name"
-            name="name"
-            value={formData.name || ''}
-            onChange={handleChange}
-            placeholder="Enter your full name"
-            className="w-full bg-blue-900/50 border-blue-700 text-white placeholder:text-blue-300/70"
-            required
-          />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Input
+              id="name"
+              name="name"
+              value={formData.name || ''}
+              onChange={handleChange}
+              placeholder="Enter your full name"
+              className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
+              required
+            />
+          </div>
         </div>
         
         <div className="space-y-2">
           <label htmlFor="email" className="block text-sm font-medium text-white">
             Email
           </label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email || ''}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            className="w-full bg-blue-900/50 border-blue-700 text-white placeholder:text-blue-300/70"
-            required
-          />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email || ''}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
+              required
+            />
+          </div>
         </div>
         
         <div className="space-y-2">
           <label htmlFor="phone" className="block text-sm font-medium text-white">
             Phone Number (optional)
           </label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            value={formData.phone || ''}
-            onChange={handleChange}
-            placeholder="Enter your phone number"
-            className="w-full bg-blue-900/50 border-blue-700 text-white placeholder:text-blue-300/70"
-          />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              value={formData.phone || ''}
+              onChange={handleChange}
+              placeholder="Enter your phone number"
+              className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
+            />
+          </div>
         </div>
         
         <div className="space-y-2">
           <label htmlFor="country" className="block text-sm font-medium text-white">
             Country of Residence
           </label>
-          <Input
-            id="country"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            placeholder="Spain, Netherlands..."
-            className="w-full bg-blue-900/50 border-blue-700 text-white placeholder:text-blue-300/70"
-            required
-          />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Input
+              id="country"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              placeholder="Spain, Netherlands..."
+              className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
+              required
+            />
+          </div>
         </div>
       </section>
 
-      <div className="w-full h-px bg-blue-700/50 my-6"></div>
+      <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-blue-600/50 to-transparent my-6 rounded-full"></div>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-amber-400">Step 2: Investment Intent</h2>
+        <div className="flex items-center gap-2 mb-1">
+          <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold">2</div>
+          <h2 className="text-xl font-bold text-amber-400">Investment Intent</h2>
+        </div>
         
         <div className="space-y-2">
           <label htmlFor="investmentAmount" className="block text-sm font-medium text-white">
             How much would you consider investing?
           </label>
-          <Select 
-            onValueChange={(value) => handleSelectChange('investmentAmount', value)}
-            required
-          >
-            <SelectTrigger className="w-full bg-blue-900/50 border-blue-700 text-white">
-              <SelectValue placeholder="Select an amount" />
-            </SelectTrigger>
-            <SelectContent className="bg-blue-950 border-blue-800 text-white">
-              <SelectItem value="less-than-100" className="text-white focus:bg-blue-800 focus:text-white">Less than €100</SelectItem>
-              <SelectItem value="100-500" className="text-white focus:bg-blue-800 focus:text-white">€100–€500</SelectItem>
-              <SelectItem value="500-1000" className="text-white focus:bg-blue-800 focus:text-white">€500–€1,000</SelectItem>
-              <SelectItem value="1000-5000" className="text-white focus:bg-blue-800 focus:text-white">€1,000–€5,000</SelectItem>
-              <SelectItem value="over-5000" className="text-white focus:bg-blue-800 focus:text-white">Over €5,000</SelectItem>
-              <SelectItem value="just-curious" className="text-white focus:bg-blue-800 focus:text-white">Just curious for now</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Select 
+              onValueChange={(value) => handleSelectChange('investmentAmount', value)}
+              required
+            >
+              <SelectTrigger className="relative w-full rounded-xl py-2.5 h-11 bg-white border-blue-700/50 text-slate-800 hover:border-blue-600 transition-all duration-300">
+                <SelectValue placeholder="Select an amount" />
+              </SelectTrigger>
+              <SelectContent className="bg-white border-blue-700/50 rounded-xl shadow-lg backdrop-blur-lg text-slate-800">
+                <SelectItem value="less-than-100" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">Less than €100</SelectItem>
+                <SelectItem value="100-500" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">€100–€500</SelectItem>
+                <SelectItem value="500-1000" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">€500–€1,000</SelectItem>
+                <SelectItem value="1000-5000" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">€1,000–€5,000</SelectItem>
+                <SelectItem value="over-5000" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">Over €5,000</SelectItem>
+                <SelectItem value="just-curious" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">Just curious for now</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </section>
 
-      <div className="w-full h-px bg-blue-700/50 my-6"></div>
+      <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-blue-600/50 to-transparent my-6 rounded-full"></div>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-amber-400">Step 3: Your Experience</h2>
+        <div className="flex items-center gap-2 mb-1">
+          <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold">3</div>
+          <h2 className="text-xl font-bold text-amber-400">Have you invested before?</h2>
+        </div>
         
         <div className="space-y-2">
           <label htmlFor="priorExperience" className="block text-sm font-medium text-white">
-            Have you invested in real estate before?
+            This helps us understand your experience level.
           </label>
-          <Select 
-            onValueChange={(value) => handleSelectChange('priorExperience', value)}
-            required
-          >
-            <SelectTrigger className="w-full bg-blue-900/50 border-blue-700 text-white">
-              <SelectValue placeholder="Select option" />
-            </SelectTrigger>
-            <SelectContent className="bg-blue-950 border-blue-800 text-white">
-              <SelectItem value="Yes" className="text-white focus:bg-blue-800 focus:text-white">Yes</SelectItem>
-              <SelectItem value="No" className="text-white focus:bg-blue-800 focus:text-white">No</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Select 
+              onValueChange={(value) => handleSelectChange('priorExperience', value)}
+              required
+            >
+              <SelectTrigger className="relative w-full rounded-xl py-2.5 h-11 bg-white border-blue-700/50 text-slate-800 hover:border-blue-600 transition-all duration-300">
+                <SelectValue placeholder="Select option" />
+              </SelectTrigger>
+              <SelectContent className="bg-white border-blue-700/50 rounded-xl shadow-lg backdrop-blur-lg text-slate-800">
+                <SelectItem value="Yes, I've invested in real estate" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">Yes, I've invested in real estate</SelectItem>
+                <SelectItem value="Yes, but only in stocks, crypto, or other assets" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">Yes, but only in stocks, crypto, or other assets</SelectItem>
+                <SelectItem value="No, I'm new to investing" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">No, I'm new to investing</SelectItem>
+                <SelectItem value="Prefer not to say" className="text-slate-800 hover:bg-blue-50 focus:bg-blue-100 focus:text-blue-800 rounded-lg">Prefer not to say</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
         
         <div className="space-y-2">
           <label htmlFor="painPoints" className="block text-sm font-medium text-white">
             What frustrates you most about real estate investment?
           </label>
-          <Input
-            id="painPoints"
-            name="painPoints"
-            value={formData.painPoints || ''}
-            onChange={handleChange}
-            placeholder="Your pain points, e.g., complexity, high costs, lack of access..."
-            className="w-full bg-blue-900/50 border-blue-700 text-white placeholder:text-blue-300/70"
-          />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Input
+              id="painPoints"
+              name="painPoints"
+              value={formData.painPoints || ''}
+              onChange={handleChange}
+              placeholder="Your pain points, e.g., complexity, high costs, lack of access..."
+              className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
+            />
+          </div>
         </div>
         
         <div className="space-y-2">
           <label htmlFor="wishlist" className="block text-sm font-medium text-white">
             What would make this platform a no-brainer for you?
           </label>
-          <Input
-            id="wishlist"
-            name="wishlist"
-            value={formData.wishlist || ''}
-            onChange={handleChange}
-            placeholder="e.g., transparency, easy returns, lower barriers..."
-            className="w-full bg-blue-900/50 border-blue-700 text-white placeholder:text-blue-300/70"
-          />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+            <Input
+              id="wishlist"
+              name="wishlist"
+              value={formData.wishlist || ''}
+              onChange={handleChange}
+              placeholder="e.g., transparency, easy returns, lower barriers..."
+              className="relative w-full rounded-xl py-2.5 bg-white border-blue-700/50 text-slate-800 placeholder:text-slate-400 hover:border-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-500/50"
+            />
+          </div>
         </div>
       </section>
 
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 text-lg mt-5"
-      >
-        {isSubmitting ? 'Submitting...' : 'Join the Waitlist'}
-      </Button>
+      <div className="relative group mt-8">
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-amber-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="relative w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 text-lg rounded-xl shadow-lg transform transition duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
+        >
+          {isSubmitting ? 'Submitting...' : 'Join the Waitlist'}
+        </Button>
+      </div>
       
       {submitStatus === 'success' && (
-        <p className="text-green-400 text-center">Thank you for signing up! We'll be in touch soon.</p>
+        <div className="rounded-xl bg-green-500/20 border border-green-500/30 p-3 text-center">
+          <p className="text-green-400">Thank you for signing up! We'll be in touch soon.</p>
+        </div>
       )}
       
       {submitStatus === 'error' && (
-        <p className="text-red-400 text-center">{errorMessage}</p>
+        <div className="rounded-xl bg-red-500/20 border border-red-500/30 p-3 text-center">
+          <p className="text-red-400">{errorMessage}</p>
+        </div>
       )}
     </form>
   )
