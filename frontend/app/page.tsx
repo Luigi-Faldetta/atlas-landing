@@ -31,7 +31,7 @@ export default function Home() {
           
           {/* Main heading with animated gradient */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-6">
-            Start owning real estate — <span className="text-amber-400">without breaking the bank</span>
+            Start owning real estate, <span className="text-amber-400">without breaking the bank</span>
           </h1>
           
           {/* Subheading with enhanced styling */}
