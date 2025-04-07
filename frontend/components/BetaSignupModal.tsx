@@ -37,7 +37,7 @@ export function BetaSignupModal({ trigger }: BetaSignupModalProps) {
       ) : (
         <Button 
           onClick={handleButtonClick}
-          className="relative px-8 py-6 text-lg bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-xl shadow-lg transform transition duration-300 group-hover:scale-105 group-hover:shadow-xl w-full"
+          className="relative flex items-center justify-center px-8 py-6 text-lg bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-lg transform transition duration-300 group-hover:scale-105 group-hover:shadow-xl w-full h-full box-border leading-none"
         >
           Join the early access list
         </Button>

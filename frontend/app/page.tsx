@@ -1,9 +1,11 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { BetaSignupModal } from '@/components/BetaSignupModal';
+import PropertyInvestmentDashboard from '@/components/PropertyInvestmentDashboard';
 
 export default function Home() {
   return (
@@ -43,11 +45,28 @@ export default function Home() {
           
           {/* CTA section with dual buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <div className="relative group">
+            <div className="relative group flex-1">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-amber-600 rounded-xl blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
-              <div className="relative block">
+              <div className="relative block h-full">
                 <BetaSignupModal />
               </div>
+            </div>
+            
+            {/* Calculate investment button - scrolls to investment dashboard */}
+            <div className="relative group flex-1">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+              <a 
+                href="#investment-calculator" 
+                className="relative flex items-center justify-center px-8 py-6 text-lg bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg transform transition duration-300 group-hover:scale-105 group-hover:shadow-xl w-full h-full box-border leading-none"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('investment-calculator')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }}
+              >
+                Calculate your investment
+              </a>
             </div>
           </div>
           
@@ -605,6 +624,23 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      
+
+      {/* Investment Dashboard */}
+      <section id="investment-calculator" className="relative bg-gray-100 py-24 px-6 overflow-hidden">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6">
+              Calculate Your <span className="text-blue-600">Investment Returns</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Use our interactive calculator to see potential returns from fractional property investments.
+            </p>
+          </div>
+          <PropertyInvestmentDashboard />
         </div>
       </section>
 
