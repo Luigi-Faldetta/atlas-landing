@@ -12,7 +12,8 @@ import {
   Calculator,
   Menu,
   X,
-  Building2
+  Building2,
+  Info
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -21,6 +22,11 @@ const navItems = [
     name: "Home",
     href: "/",
     icon: Home
+  },
+  {
+    name: "About",
+    href: "/about",
+    icon: Info
   }
 ];
 

@@ -77,25 +77,21 @@ export function SignupForm() {
     setErrorMessage('');
 
     // Prepare data for Sheety API
-    // Note: column names in sheet must match these property names (case-sensitive)
     const sheetyData = {
       sheet1: {
-        // Make sure these exactly match your column headers (case sensitive)
-        // Note: Sheety often works better with lowercase column names
         name: formData.name || '',
         email: formData.email || '',
         phone: formData.phone || '',
         country: formData.country || '',
-        investmentamount: formData.investmentAmount || '', // Try lowercase for compound names
-        priorexperience: formData.priorExperience || '', // Try lowercase for compound names
-        painpoints: formData.painPoints || '', // Try lowercase for compound names
+        investmentamount: formData.investmentAmount || '',
+        priorexperience: formData.priorExperience || '',
+        painpoints: formData.painPoints || '',
         wishlist: formData.wishlist || '',
-        // Send each checkbox value as "Yes"/"No" strings
-        "owning real estate without buying an entire property": formData.interests.owningRealEstate ? "Yes" : "No",
-        "monthly income through rental shares": formData.interests.monthlyIncome ? "Yes" : "No",
-        "diversifying my portfolio": formData.interests.diversifyingPortfolio ? "Yes" : "No",
-        "simpler, smarter way to invest in real estate": formData.interests.simplerWay ? "Yes" : "No",
-        "selling and exiting on my own terms": formData.interests.sellingExiting ? "Yes" : "No",
+        "owningRealEstate": formData.interests.owningRealEstate ? "Yes" : "No",
+        "monthlyIncome": formData.interests.monthlyIncome ? "Yes" : "No",
+        "diversifyingPortfolio": formData.interests.diversifyingPortfolio ? "Yes" : "No",
+        "simplerWay": formData.interests.simplerWay ? "Yes" : "No",
+        "sellingExiting": formData.interests.sellingExiting ? "Yes" : "No",
         "other": formData.interests.other ? formData.otherInterestText : "No"
       }
     };
@@ -117,14 +113,17 @@ export function SignupForm() {
       });
       
       if (!response.ok) {
-        // Get the response text to see the error details
         const errorText = await response.text();
-        console.error(`HTTP error! status: ${response.status}, details:`, errorText);
-        throw new Error(`HTTP error! status: ${response.status}`);
+        console.error('Sheety API Error:', {
+          status: response.status,
+          statusText: response.statusText,
+          errorDetails: errorText
+        });
+        throw new Error(`Submission failed: ${response.status} ${response.statusText}`);
       }
       
       const responseData = await response.json();
-      console.log("Response data:", responseData);
+      console.log("Sheety API Response:", responseData);
       
       // Send confirmation email
       try {
@@ -140,7 +139,7 @@ export function SignupForm() {
         });
 
         if (!emailResponse.ok) {
-          console.error('Failed to send confirmation email');
+          console.error('Failed to send confirmation email:', await emailResponse.text());
         }
       } catch (error) {
         console.error('Error sending confirmation email:', error);
@@ -170,9 +169,9 @@ export function SignupForm() {
       });
 
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setErrorMessage('Failed to submit form. Please try again.');
+      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred');
     } finally {
       setIsSubmitting(false);
     }
